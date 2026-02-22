@@ -26,9 +26,6 @@
 
 #include <wx/wx.h>
 
-#include "jsonreader.h"
-#include "jsonwriter.h"
-
 #include "rotationctrl_pi.h"
 #include "PreferencesDialog.h"
 #include "icons.h"
@@ -61,7 +58,7 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
 //-----------------------------------------------------------------------------
 
 rotationctrl_pi::rotationctrl_pi(void *ppimgr)
-    : opencpn_plugin_113(ppimgr)
+    : opencpn_plugin_118(ppimgr)
 {
     // Create the PlugIn icons
     initialize_images();
@@ -129,8 +126,8 @@ int rotationctrl_pi::Init(void)
     m_bSlewRefresh = false;
     m_LimitRotation = m_LimitFilter = false;
 
-    m_Timer.Connect(wxEVT_TIMER, wxTimerEventHandler
-                    ( rotationctrl_pi::OnTimer ), NULL, this);
+   
+
 
     return (WANTS_TOOLBAR_CALLBACK |
             WANTS_PREFERENCES      |
@@ -161,7 +158,7 @@ int rotationctrl_pi::GetAPIVersionMinor()
 {
   std::string v(API_VERSION);
   size_t dotpos = v.find('.');
-  return atoi(v.substr(dotpos + 1).c_str())
+  return atoi(v.substr(dotpos + 1).c_str());
 }
 
 int rotationctrl_pi::GetPlugInVersionMajor()
@@ -278,7 +275,7 @@ void rotationctrl_pi::OnToolbarToolUpCallback(int id)
     m_tilt_dir = 0;
 }
 
-void rotationctrl_pi::OnTimer( wxTimerEvent & )
+void rotationctrl_pi::OnTimer( wxTimerEvent & event)
 {
 //    double dt = m_lastfix.FixTime - m_lasttimerfix.FixTime;
 

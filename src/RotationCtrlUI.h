@@ -23,6 +23,10 @@
 #include <wx/spinctrl.h>
 #include <wx/button.h>
 #include <wx/dialog.h>
+#include "wx/jsonreader.h"
+#include "config.h"
+#include "wx/event.h"
+#include "wx/timer.h"
 
 ///////////////////////////////////////////////////////////////////////////
 

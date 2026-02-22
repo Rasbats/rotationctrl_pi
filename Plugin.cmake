@@ -31,7 +31,7 @@ set(OCPN_RELEASE_REPO
 #
 # -------  Plugin setup --------
 #
-set(PKG_NAME RotationCtrl)
+set(PKG_NAME RotationCtrl_pi)
 set(PKG_VERSION  1.13.0)
 set(PKG_PRERELEASE "")  # Empty, or a tag like 'beta'
 
@@ -49,8 +49,10 @@ set(PKG_INFO_URL https://opencpn.org/OpenCPN/plugins/RotationCtrl.html)
 
 set(SRC
      src/rotationctrl_pi.cpp
+     src/rotationctrl_pi.h
             src/PreferencesDialog.cpp
             src/RotationCtrlUI.cpp
+            src/RotationCtrlUI.h
             src/icons.cpp
 )
 
@@ -73,7 +75,7 @@ macro(add_plugin_libraries)
   add_subdirectory("${CMAKE_SOURCE_DIR}/opencpn-libs/jsoncpp")
   target_link_libraries(${PACKAGE_NAME} ocpn::jsoncpp)
 
-  # The wxsvg library enables SVG overall in the plugin
-  add_subdirectory("${CMAKE_SOURCE_DIR}/opencpn-libs/wxsvg")
-  target_link_libraries(${PACKAGE_NAME} ocpn::wxsvg)
+  add_subdirectory("${CMAKE_SOURCE_DIR}/opencpn-libs/nmea0183")
+  target_link_libraries(${PACKAGE_NAME} ocpn::nmea0183)
+
 endmacro ()

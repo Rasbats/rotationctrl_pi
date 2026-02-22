@@ -30,11 +30,13 @@
 #include "wx/wx.h"
 
 #include <wx/fileconf.h>
+#include "json/reader.h"
+#include "json/writer.h"
 
-#include "version.h"
+#include "wx/jsonreader.h"
+#include "wx/jsonwriter.h"
+#include "wx/math.h"
 
-#define     MY_API_VERSION_MAJOR    1
-#define     MY_API_VERSION_MINOR    13
 
 #define ABOUT_AUTHOR_URL "http://seandepagnier.users.sourceforge.net"
 
@@ -87,7 +89,7 @@ enum RotationTools {MANUAL_CCW, MANUAL_CW, MANUAL_TILTUP, MANUAL_TILTDOWN,
                     NORTH_UP, SOUTH_UP, COURSE_UP, HEADING_UP,
                     ROUTE_UP, WIND_UP, NUM_ROTATION_TOOLS};
 
-class rotationctrl_pi : public wxEvtHandler, public opencpn_plugin_113
+class rotationctrl_pi : public opencpn_plugin_118
 {
 public:
 
