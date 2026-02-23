@@ -13,16 +13,16 @@
 # -------- Options ----------
 
 set(OCPN_TEST_REPO
-    "opencpn/RotationCtrl-alpha"
+    "opencpn/rotationctrl-alpha"
     CACHE STRING "Default repository for untagged builds"
 )
 set(OCPN_BETA_REPO
-    "opencpn/RotationCtrl-beta"
+    "opencpn/rotationctrl-beta"
     CACHE STRING
     "Default repository for tagged builds matching 'beta'"
 )
 set(OCPN_RELEASE_REPO
-    "opencpn/RotationCtrl-prod"
+    "opencpn/rotationctrl-prod"
     CACHE STRING
     "Default repository for tagged builds not matching 'beta'"
 )
